@@ -1,6 +1,6 @@
 {
   "name": "hexo-next-artalk",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Artalk comment plugin for Hexo NexT.",
   "keywords": [
     "Hexo",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AlliotTech/hexo-next-artalk.git"
+    "url": "git+https://github.com/AlliotTech/hexo-next-artalk.git"
   },
   "license": "MIT",
   "author": "Alliot",
