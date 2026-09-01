@@ -20,6 +20,9 @@
   "author": "Alliot",
   "main": "index.js",
   "packageManager": "pnpm@11.23.0",
+  "scripts": {
+    "release": "node scripts/release.js"
+  },
   "dependencies": {
     "@next-theme/utils": "^1.3.0"
   }
