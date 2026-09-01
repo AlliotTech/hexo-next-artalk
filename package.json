@@ -8,17 +8,18 @@
     "Artalk",
     "comment"
   ],
-  "homepage": "https://github.com/leirock/hexo-next-artalk/#readme",
+  "homepage": "https://github.com/AlliotTech/hexo-next-artalk/#readme",
   "bugs": {
-    "url": "https://github.com/leirock/hexo-next-artalk/issues"
+    "url": "https://github.com/AlliotTech/hexo-next-artalk/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/leirock/hexo-next-artalk.git"
+    "url": "https://github.com/AlliotTech/hexo-next-artalk.git"
   },
   "license": "MIT",
-  "author": "leirock <zdlzj@foxmail.com>",
+  "author": "Alliot",
   "main": "index.js",
+  "packageManager": "pnpm@11.23.0",
   "dependencies": {
     "@next-theme/utils": "^1.3.0"
   }

@@ -1,6 +1,6 @@
 # Artalk for Hexo NexT
 
-> [中文](https://github.com/leirock/hexo-next-artalk/blob/main/README-CN.md)
+> [中文](https://github.com/AlliotTech/hexo-next-artalk/blob/main/README-CN.md)
 
 [![NPM version](https://img.shields.io/npm/v/hexo-next-artalk?color=red&logo=npm&style=flat-square)](https://www.npmjs.com/package/hexo-next-artalk)
 [![NPM downloads](https://img.shields.io/npm/dm/hexo-next-artalk?color=red&logo=npm&style=flat-square)](https://www.npmjs.com/package/hexo-next-artalk)

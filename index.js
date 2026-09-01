@@ -26,7 +26,7 @@ function registerPostMeta(injects) {
           <i class="far fa-eye"></i>
         </span>
         <span class="post-meta-item-text">{{ __('post.views') + __('symbol.colon') }}</span>
-        <span id="ArtalkPV" data-page-key="{{ url_for(post.path) }}"></span>
+        <span id="ArtalkPV" data-page-key="{{ url_for(post.path) | replace(r/index\\.html$/, '') }}"></span>
       </span>
     {% endif %}`,
     {},
@@ -46,7 +46,7 @@ function registerPostMeta(injects) {
         </span>
         <span class="post-meta-item-text">{{ post_meta_comment + __('symbol.colon') }}</span>
         <a href="{{ url_for(post.path) }}#comments" itemprop="discussionUrl">
-          <span id="ArtalkCount" class="post-comments-count" data-page-key="{{ url_for(post.path) }}" itemprop="commentCount"></span>
+          <span id="ArtalkCount" class="post-comments-count" data-page-key="{{ url_for(post.path) | replace(r/index\\.html$/, '') }}" itemprop="commentCount"></span>
         </a>
       </span>
     {% endif %}`,
