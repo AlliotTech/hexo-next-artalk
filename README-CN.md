@@ -43,12 +43,41 @@ artalk:
   # 评论数统计
   commentCount: true
 
+  # 评论区上方的页面投票按钮
+  ## 需要 Artalk v2.10.0 及以上版本，旧版前端会静默忽略此项
+  pageVote: false
+
   # 黑暗模式
+  ## true | false | auto（跟随 prefers-color-scheme）
   darkMode: auto
 
-  # 在后端控制前端
+  # 后端配置的优先级，需要 Artalk v2.10.0 及以上版本
+  ## false：下方的本地配置覆盖后端管理面板的配置
+  ## true：后端管理面板的配置优先
   ## 参考：https://artalk.js.org/guide/backend/fe-control.html
-  useBackendConf: true
+  preferRemoteConf: false
+
+  # 可选的 Artalk 前端配置项，默认全部注释：
+  # 除 preferRemoteConf 为 true 时，此处填写的每一项都会覆盖
+  # 后端管理面板中的同名配置。只取消注释您确实要固定的项。
+  ## 参考：https://artalk.js.org/guide/frontend/config.html
+  # placeholder: Type something...
+  # sendBtn: Post Comment
+  # noComment: "「Silence is golden」"
+  # locale: auto
+  # preview: true
+  # vote: true
+  # voteDown: false
+  # listSort: true
+  # imgUpload: true
+  # imgLazyLoad: false  # 可选 false | native | data-src，`true` 非法
+  # flatMode: auto
+  # nestMax: 2  # 小于等于 1 时会强制 flatMode 为 true
+  # nestSort: DATE_ASC
+  # pagination:
+  #   pageSize: 20
+  #   readMore: true
+  #   autoLoad: true
 ```
 
 ## 贴士
@@ -63,4 +92,14 @@ zh-CN:
   post:
     comments:
       artalk: 评论数
+```
+
+页面投票按钮的文字取自 `post.vote.up` / `post.vote.down`，缺省回退为 “Like” / “Dislike”。同样可以这样覆盖：
+
+```yaml
+zh-CN:
+  post:
+    vote:
+      up: 赞
+      down: 踩
 ```

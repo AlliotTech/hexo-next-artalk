@@ -22,9 +22,38 @@ artalk:
   # Comments count
   commentCount: true
 
+  # Page voting buttons above the comment area
+  ## Requires Artalk v2.10.0 or later, older frontends silently ignore it
+  pageVote: false
+
   # Dark mode
+  ## true | false | auto (follows prefers-color-scheme)
   darkMode: auto
 
-  # Use backend to config
+  # Remote (backend) configuration priority, Artalk v2.10.0+
+  ## false: local config below overrides the backend dashboard config
+  ## true: backend dashboard config wins
   ## Reference: https://artalk.js.org/guide/backend/fe-control.html
-  useBackendConf: true
+  preferRemoteConf: false
+
+  # Optional Artalk frontend options, all commented out on purpose:
+  # every option set here overrides the backend dashboard config
+  # unless preferRemoteConf is true. Uncomment only what you want to pin.
+  ## Reference: https://artalk.js.org/guide/frontend/config.html
+  # placeholder: Type something...
+  # sendBtn: Post Comment
+  # noComment: "「Silence is golden」"
+  # locale: auto
+  # preview: true
+  # vote: true
+  # voteDown: false
+  # listSort: true
+  # imgUpload: true
+  # imgLazyLoad: false  # false | native | data-src, `true` is invalid
+  # flatMode: auto
+  # nestMax: 2  # <= 1 forces flatMode to true
+  # nestSort: DATE_ASC
+  # pagination:
+  #   pageSize: 20
+  #   readMore: true
+  #   autoLoad: true

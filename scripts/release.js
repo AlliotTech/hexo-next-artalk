@@ -6,7 +6,6 @@ const { resolve } = require('node:path');
 
 const root = resolve(__dirname, '..');
 const packagePath = resolve(root, 'package.json');
-const packageJson = JSON.parse(readFileSync(packagePath, 'utf8'));
 const requested = process.argv[2];
 
 if (!requested || !['major', 'minor', 'patch'].includes(requested) && !/^v?\d+\.\d+\.\d+$/.test(requested)) {
@@ -42,6 +41,7 @@ const tag = `v${version}`;
 
 run('git', ['add', 'package.json']);
 run('git', ['commit', '-m', `chore: release ${tag}`]);
+run('git', ['tag', tag]);
 run('git', ['push', 'origin', 'main']);
 run('git', ['push', 'origin', tag]);
 run('gh', ['release', 'create', tag, '--title', tag, '--generate-notes']);

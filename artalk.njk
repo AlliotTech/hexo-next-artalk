@@ -8,25 +8,40 @@
 <style>.artalk{width:initial;}</style>
 
 <script>
-document.addEventListener('page:loaded', function() {
-  const { el, jsUrl, server, site, pvCount, commentCount } = CONFIG.artalk;
+(function() {
+  const loadArtalk = config => NexT.utils.getScript(config.jsUrl, { condition: window.Artalk });
+  const onError = err => console.error('[hexo-next-artalk]', err);
 
-  if (CONFIG.page.comments) {
-    NexT.utils.loadComments(el)
-      .then(() => NexT.utils.getScript(jsUrl, { condition: window.Artalk }))
-      .then(() => {
-        Artalk.init(CONFIG.artalk);
-      });
-  } else {
-    NexT.utils.getScript(jsUrl, { condition: window.Artalk })
-      .then(() => {
-        Artalk.loadCountWidget({
-          server: server,
-          site: site,
+  // This script runs once, while `page:loaded` fires on every pjax navigation,
+  // so the previous instance has to be torn down before mounting a new one.
+  document.addEventListener('page:loaded', function() {
+    const config = window.CONFIG && window.CONFIG.artalk;
+    if (!config || !window.NexT) return;
+
+    if (window.__hexoNextArtalk) {
+      if (typeof window.__hexoNextArtalk.destroy === 'function') window.__hexoNextArtalk.destroy();
+      window.__hexoNextArtalk = null;
+    }
+
+    if (window.CONFIG.page.comments) {
+      NexT.utils.loadComments(config.el)
+        .then(() => loadArtalk(config))
+        .then(() => {
+          window.__hexoNextArtalk = Artalk.init(Object.assign({}, config));
+          document.querySelectorAll('.artalk-page-vote-button[disabled]')
+            .forEach(button => button.removeAttribute('disabled'));
+        })
+        .catch(onError);
+    } else {
+      loadArtalk(config)
+        .then(() => Artalk.loadCountWidget({
+          server: config.server,
+          site: config.site,
           pvEl: '#ArtalkPV',
           countEl: '#ArtalkCount'
-        });
-      });
-  }
-});
+        }))
+        .catch(onError);
+    }
+  });
+})();
 </script>
